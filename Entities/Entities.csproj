@@ -11,12 +11,14 @@
     <None Remove="DataTransferObjects\" />
     <None Remove="ErrorModel\" />
     <None Remove="Newtonsoft.Json" />
+    <None Remove="RequestFeatures\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Configuration\" />
     <Folder Include="DataTransferObjects\" />
     <Folder Include="ErrorModel\" />
+    <Folder Include="RequestFeatures\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
