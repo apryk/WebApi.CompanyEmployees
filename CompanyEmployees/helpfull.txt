@@ -1,0 +1,7 @@
+﻿dotnet migrations
+
+# create migration
+dotnet ef migrations add MigrationName
+
+# run migrations
+dotnet ef database update

@@ -1,0 +1,34 @@
+2021-07-25 12:34:30.2568 INFO Here is info message from our values controller.
+2021-07-25 12:34:30.2802 DEBUG Here is debug message from our values controller.
+2021-07-25 12:34:30.2819 WARN Here is warn message from our values controller.
+2021-07-25 12:34:30.2819 ERROR Here is an error message from our values controller.
+2021-07-25 12:34:30.5867 INFO Here is info message from our values controller.
+2021-07-25 12:34:30.5867 DEBUG Here is debug message from our values controller.
+2021-07-25 12:34:30.5867 WARN Here is warn message from our values controller.
+2021-07-25 12:34:30.5867 ERROR Here is an error message from our values controller.
+2021-07-25 12:34:43.4738 INFO Here is info message from our values controller.
+2021-07-25 12:34:43.4738 DEBUG Here is debug message from our values controller.
+2021-07-25 12:34:43.4738 WARN Here is warn message from our values controller.
+2021-07-25 12:34:43.4738 ERROR Here is an error message from our values controller.
+2021-07-25 18:57:48.0666 INFO Here is info message from our values controller.
+2021-07-25 18:57:48.0912 DEBUG Here is debug message from our values controller.
+2021-07-25 18:57:48.0916 WARN Here is warn message from our values controller.
+2021-07-25 18:57:48.0924 ERROR Here is an error message from our values controller.
+2021-07-25 20:10:35.9321 ERROR Something went wron: System.Exception: Exception
+   at CompanyEmployees.Controllers.CompaniesController.GetCompanies() in /Users/apryk/Projects/CompanyEmployees/CompanyEmployees/Controllers/CompaniesController.cs:line 64
+   at lambda_method2(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-07-25 20:36:48.5674 INFO Company with id: 3d490a71-94ce-4d15-9494-5248280c2ce3 doesn't exist in the database.
