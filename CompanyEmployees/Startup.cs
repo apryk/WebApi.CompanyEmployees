@@ -59,6 +59,7 @@ namespace CompanyEmployees
 
             services.AddScoped<ValidationFilterAttribute>();
             services.AddScoped<ValidateCompanyExistsAttribute>();
+            services.AddScoped<ValidateEmployeeForCompanyExistsAttribute>();
 
         }
 
