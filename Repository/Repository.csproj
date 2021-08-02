@@ -11,9 +11,11 @@
   <ItemGroup>
     <None Remove="Extensions\" />
     <None Remove="System.Linq.Dynamic.Core" />
+    <None Remove="Extensions\Utility\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="Extensions\Utility\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.12" />
