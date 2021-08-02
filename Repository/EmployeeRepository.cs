@@ -7,6 +7,7 @@ using Entities;
 using Entities.Models;
 using Entities.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
+using Repository.Extensions;
 
 namespace Repository
 {
@@ -21,10 +22,12 @@ namespace Repository
             EmployeeParameters employeeParameters, bool trackChanges)
         {
             var employees = await FindByCondition(e => e.CompanyId.Equals(companyId), trackChanges)
-            .OrderBy(e => e.Name)
-            .Skip((employeeParameters.PageNumber - 1) * employeeParameters.PageSize)
-            .Take(employeeParameters.PageSize)
-            .ToListAsync();
+                .FilterEmployees(employeeParameters.MinAge, employeeParameters.MaxAge)
+                .Search(employeeParameters.SearchTerm)
+                .OrderBy(e => e.Name)
+                .Skip((employeeParameters.PageNumber - 1) * employeeParameters.PageSize)
+                .Take(employeeParameters.PageSize)
+                .ToListAsync();
 
             var count = await FindByCondition(e => e.CompanyId.Equals(companyId), trackChanges).CountAsync();
 
