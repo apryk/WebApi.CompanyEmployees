@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreRateLimit;
 using CompanyEmployees.ActionFilters;
 using CompanyEmployees.Extensions;
 using Contracts.Interfaces;
@@ -45,6 +46,7 @@ namespace CompanyEmployees
             {
                 config.RespectBrowserAcceptHeader = true;
                 config.ReturnHttpNotAcceptable = true;
+                config.CacheProfiles.Add("120SecondsDuration", new CacheProfile { Duration = 120 });
             })
                 .AddNewtonsoftJson()
                 .AddXmlDataContractSerializerFormatters()
@@ -63,7 +65,12 @@ namespace CompanyEmployees
             services.AddScoped<ValidateCompanyExistsAttribute>();
             services.AddScoped<ValidateEmployeeForCompanyExistsAttribute>();
             services.AddScoped<IDataShaper<EmployeeDto>, DataShaper<EmployeeDto>>();
+            services.ConfigureResponseCaching();
+            services.ConfigureHttpCacheHeaders();
 
+            services.AddMemoryCache();
+            //services.ConfigureRateLimitingOptions();
+            //services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,6 +94,11 @@ namespace CompanyEmployees
             {
                 ForwardedHeaders = ForwardedHeaders.All
             });
+
+            app.UseResponseCaching();
+            app.UseHttpCacheHeaders();
+
+            //app.UseIpRateLimiting();
 
             app.UseRouting();
 

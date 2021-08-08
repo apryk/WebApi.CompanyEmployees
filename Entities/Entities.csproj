@@ -12,6 +12,7 @@
     <None Remove="ErrorModel\" />
     <None Remove="Newtonsoft.Json" />
     <None Remove="RequestFeatures\" />
+    <None Remove="LinkModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -19,6 +20,7 @@
     <Folder Include="DataTransferObjects\" />
     <Folder Include="ErrorModel\" />
     <Folder Include="RequestFeatures\" />
+    <Folder Include="LinkModels\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />

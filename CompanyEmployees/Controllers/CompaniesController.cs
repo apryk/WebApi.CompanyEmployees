@@ -14,7 +14,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyEmployees.Controllers
 {
+    [ApiVersion("1.0")]
     [Route("api/companies")]
+    [ResponseCache(CacheProfileName = "120SecondsDuration")]
     public class CompaniesController : Controller
     {
         private readonly IRepositoryManager _repository;
@@ -30,6 +32,7 @@ namespace CompanyEmployees.Controllers
         }
 
         [HttpGet]
+        [HttpGet(Name = "GetCompanies")]
         public async Task<IActionResult> GetCompanies()
         {
             var companies = await _repository.Company.GetAllCompaniesAsync(trackChanges: false);
@@ -39,6 +42,7 @@ namespace CompanyEmployees.Controllers
             return Ok(companiesDto);
         }
 
+        [ResponseCache(Duration = 60)]
         [HttpGet("{id}", Name = "CompanyById")]
         public async Task<IActionResult> GetCompany(Guid id)
         {
@@ -56,6 +60,7 @@ namespace CompanyEmployees.Controllers
         }
 
         [HttpPost]
+        [HttpPost(Name = "CreateCompany")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateCompany([FromBody] CompanyForCreationDto company)
         {
@@ -131,6 +136,13 @@ namespace CompanyEmployees.Controllers
             await _repository.SaveAsync();
 
             return NoContent();
+        }
+
+        [HttpOptions]
+        public IActionResult GetCompaniesOptions()
+        {
+            Response.Headers.Add("Allow", "GET, OPTIONS, POST");
+            return Ok();
         }
     }
 }
